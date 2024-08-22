@@ -15,6 +15,7 @@ dbt-extractor==0.5.1
 dbt-semantic-interfaces==0.5.1
 deepdiff==7.0.1
 dlt==0.5.3
+duckdb==1.0.0
 fsspec==2024.6.1
 gitdb==4.0.11
 GitPython==3.1.43
