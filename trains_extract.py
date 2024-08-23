@@ -7,8 +7,17 @@ trains_config = {
     "client": {
         "base_url": digitraffic_url,
     },
+    "resource_defaults": {
+        "primary_key": "trainNumber",
+        "write_disposition": "merge"
+        },
     "resources": [
-        "trains"
+        {
+            "name": "hki_trains",
+            "endpoint": {
+                "path": "live-trains/station/HKI"
+            },
+        }
     ],
 }
 
@@ -19,7 +28,7 @@ if __name__=='__main__':
     pipeline = dlt.pipeline(
         pipeline_name='digitraffic_trains',
         destination=dlt.destinations.duckdb('dt_trains.db'),
-        dataset_name='dt_trains.train_info'
+        dataset_name='digitraffic_trains'
     )
 
     pipeline.run(trains_source)
