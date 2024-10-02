@@ -167,3 +167,5 @@ cython_debug/
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/trains.iml
 /.idea/vcs.xml
+/.idea/dataSources.xml
+/.idea/sqldialects.xml
