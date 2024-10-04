@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: digitraffic
+    database: digitraffic
+    schema: dt_traffic
+    tables:
+      - name: tms_stations
+      - name: tms_stations__geometry__coordinates
+      - name: tms_values
+      - name: _dlt_loads
+
+  - name: stripe
+    tables:
+      - name: payments
