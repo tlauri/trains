@@ -5,14 +5,14 @@ import dlt
 
 digitraffic_url = "https://tie.digitraffic.fi//api/tms/v1/"
 @dlt.source
-def tlm_source():
+def tms_source():
     config: RESTAPIConfig = {
         "client": {
             "base_url": digitraffic_url,
         },
         "resources": [
             {
-                "name": "tlm_stations",
+                "name": "tms_stations",
                 "write_disposition": 'merge',
                 "primary_key": "id",
                 "endpoint": {
@@ -22,7 +22,7 @@ def tlm_source():
                 },
             },
             {
-                "name": "tlm_values",
+                "name": "tms_values",
                 "write_disposition": 'merge',
                 "primary_key": ['stationId', 'shortName', 'measuredTime'],
                 "endpoint": {
@@ -31,7 +31,7 @@ def tlm_source():
                     "params": {
                         "station": {
                             "type": "resolve",
-                            "resource": "tlm_stations",
+                            "resource": "tms_stations",
                             "field": "id",
                         }
                     },
@@ -50,4 +50,4 @@ if __name__=='__main__':
         dataset_name='dt_traffic'
     )
 
-    pipeline.run(tlm_source())
+    pipeline.run(tms_source())
